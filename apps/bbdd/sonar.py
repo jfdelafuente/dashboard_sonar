@@ -18,6 +18,8 @@ def getDistinctAplicaciones():
     try:
         conn = connect_to_db()
         scores = conn.execute("SELECT DISTINCT aplicacion FROM metricas").fetchall()
+        # for column in scores:
+        #     print("columna : %s" % column[0])
         conn.close()
     except Exception as e:
         print(f"Error:{e}")
@@ -118,12 +120,12 @@ def getAllStatsbyProveedor(proveedor):
                                 WHERE proveedor.proveedor=?",
             (proveedor,),
         ).fetchall()
-        print("Total rows are:  ", len(scores))
-        print("Printing each row")
-        for row in scores:
-            for i in range(len(row)):
-                print(row[i])
-            print("\n")
+        # print("Total rows are:  ", len(scores))
+        # print("Printing each row")
+        # for row in scores:
+        #     for i in range(len(row)):
+        #         print(row[i])
+        #     print("\n")
         conn.close()
     except Exception as e:
         print(f"Error:{e}")

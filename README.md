@@ -99,3 +99,38 @@ pendiente: "https://armandsauzay.medium.com/python-project-setup-a-step-by-step-
 ### 🐍 Setting up Python Projects: Part I: Mastering the Art of Python Project Setup: A Step-by-Step Guide
 
  "https://towardsdatascience.com/setting-up-python-projects-part-i-408603868c08"
+
+### Set Up Flask Environment
+
+$ # CMD
+$ set FLASK_APP=run.py
+$ set FLASK_ENV=development
+$
+$ # Powershell
+$ $env:FLASK_APP = ".\run.py"
+$ $env:FLASK_ENV = "Development"
+$ $env:FLASK_DEBUG = "true"
+
+Start the app
+
+$ flask run
+
+At this point, the app runs at http://127.0.0.1:5000/.
+
+## ✨ Start the app in Docker
+
+> **Step 1** - Download the code from the GH repository (using `GIT`) 
+
+$ # Get the code
+$ git clone https://github.com/appseed-projects/<YOUR_BUILD_ID>.git
+$ cd <YOUR_BUILD_ID>
+
+> **Step 2** - Edit `.env` and set `DEBUG=True`. This will activate the `SQLite` persistance.
+
+DEBUG=True
+
+> **Step 3** - Start the APP in `Docker`
+
+$ docker-compose up --build
+
+Visit `http://localhost:5085` in your browser. The app should be up & running.

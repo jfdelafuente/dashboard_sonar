@@ -2,20 +2,22 @@ import json
 
 
 def test_get_historico_by_project(test_client):
-    response = test_client.get("/api/historico/abacusbrmosp")
+    response = test_client.get("/api/historico/amonosp")
     res = json.loads(response.data.decode("utf-8"))
     print(res)
-    assert res["project_name"][0] == "abacus-application-java"
-    assert res["aplicacion"][0] == "abacusbrmosp"
+    assert res["project_name"][0] == "amonmonorepo-application-typescript"
+    assert res["aplicacion"][0] == "amonosp"
     assert response.status_code == 200
 
 
 def test_get_historico_by_name(test_client):
-    response = test_client.get("/api/historico/abacusbrmosp/abacus-application-java")
+    response = test_client.get(
+        "/api/historico/amonosp/amonmonorepo-application-typescript"
+    )
     res = json.loads(response.data.decode("utf-8"))
     print(res)
-    assert res["project_name"][0] == "abacus-application-java"
-    assert res["aplicacion"][0] == "abacusbrmosp"
+    assert res["project_name"][0] == "amonmonorepo-application-typescript"
+    assert res["aplicacion"][0] == "amonosp"
     assert response.status_code == 200
 
 
